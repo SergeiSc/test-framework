@@ -4,6 +4,7 @@
 	<parameter name="URL" value="" />
 	
 	<test name="firefox test">
+	
 		<parameter name="browserType" value="firefox" />
 		<classes>
 
@@ -15,18 +16,7 @@
 
 		</classes>
 	</test>
-<!--
-
-			<class name = "tests.NewAssignment" />
-			<class name = "tests.SignupAsTeacher" />
-
-	<test name="chrome test">
-		<parameter name="browserType" value="chrome" />
-		<classes>
-			<class name="tests.CreateClassAndAssignment" />
-		</classes>
-	</test>
--->
+	
 	<listeners>
 		<listener class-name="testSetup.TestListener" />
 	</listeners>
