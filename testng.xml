@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Sembly.io Test" allow-return-values="true" >
+<suite name="Test Case Uno" allow-return-values="true" >
 
 	<parameter name="URL" value="" />
 	
