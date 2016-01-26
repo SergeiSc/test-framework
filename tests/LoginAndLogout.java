@@ -1,6 +1,5 @@
 package tests;
 
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
 
 import pages.Pages;
@@ -16,11 +15,6 @@ public class LoginAndLogout extends TestSetup {
 	@Test(dependsOnMethods = { "canLogin" })
 	public void canLogout(){
 		Pages.topNavigation().logout();
-	}
-
-	@AfterSuite
-	public void quit() {
-		quitDriver();
 	}
 
 }

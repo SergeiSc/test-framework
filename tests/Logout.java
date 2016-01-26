@@ -1,6 +1,5 @@
 package tests;
 
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
 
 import pages.Pages;
@@ -12,11 +11,5 @@ public class Logout extends TestSetup {
 	public void canLogout(){
 		Pages.topNavigation().logout();
 	}
-
-	@AfterSuite
-	public void quit() {
-		quitDriver();
-	}
-
 	
 }

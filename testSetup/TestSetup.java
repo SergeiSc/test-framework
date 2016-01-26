@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -103,32 +104,13 @@ public class TestSetup {
 		wd.navigate().to(URL);
 		return wd;
 	}
-
-	////////////////////////////////////////////////////////////////////////////
-	/*
-	public void openBrowser(String browser) {
-		getOS();
-		try {
-			if (browser.equalsIgnoreCase("Firefox")) {
-				wd = new FirefoxDriver();
-
-			} else if (browser.equalsIgnoreCase("chrome")) {
-				System.setProperty("webdriver.chrome.driver", chromePath);
-				wd = new ChromeDriver();
-
-			} else if (browser.equalsIgnoreCase("IE") && isWindows()) {
-				System.setProperty("webdriver.ie.driver",
-						"./Drivers/Windows/IEDriverServer.exe");
-				wd = new InternetExplorerDriver();
-			}
-
-		} catch (WebDriverException e) {
-			Reporter.log(e.getMessage());
-		}
+	
+	/* CLOSE BROWSER */
+	
+	@AfterSuite
+	public void quit() {
+		quitDriver();
 	}
-	*/
-
-	//////////////////////////////////////////////////////////////////////////
 
 	/* SET WAIT DRIVER */
 
@@ -153,28 +135,5 @@ public class TestSetup {
 	public static void quitDriver() {
 		wd.quit();
 	}
-
-	/* Sample code for recognizing OS
-	 * 
-	public void getOS() {
-
-		if (isWindows()) {
-			chromePath = "./Drivers/Windows/chromedriver.exe";
-		} else if (isMac()) {
-			chromePath = "./Drivers/Mac/chromedriver.exe";
-		} else {
-			Reporter.log("Operating System not supported for Chrome.", true);
-		}
-
-	}
-
-	public static boolean isWindows() {
-		return (OS.indexOf("win") >= 0);
-	}
-
-	public static boolean isMac() {
-		return (OS.indexOf("mac") >= 0);
-	}
-	*/
 
 }
