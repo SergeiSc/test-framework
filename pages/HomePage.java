@@ -71,9 +71,8 @@ public class HomePage extends AbstractComponent {
 		inputLastName(lastname);
 		Assert.assertTrue(verifyLastName(lastname));
 
-		inputSignupEmail("SergeiSc" + myNum + "@sembly.io");
-		Assert.assertTrue("Email field verification failed", verifySignupEmail("SergeiSc" + myNum
-				+ "@sembly.io"));
+		inputSignupEmail("automationtest" + myNum + "@automationtest.com");
+		Assert.assertTrue("Email field verification failed", verifySignupEmail("automationtest" + myNum + "@automationtest.com"));
 
 		inputSignupPassword("ireland");
 		Assert.assertTrue(verifySignupPassword("ireland"));
@@ -85,7 +84,7 @@ public class HomePage extends AbstractComponent {
 		Assert.assertTrue("Dashboard verification failed", dash.verifyDashboardIsOpened());
 		
 		System.out.println("Signup as teacher PASS");
-		System.out.println("---\nSergeiSc" + myNum + "@sembly.io \nireland \n---");
+		System.out.println("---\nautomationtest" + myNum + "@automationtest.com \nireland \n---");
 	}
 
 	public void login() {
