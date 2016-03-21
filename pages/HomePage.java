@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import org.junit.Assert;
@@ -15,6 +16,7 @@ public class HomePage extends AbstractComponent {
 	protected WebDriver		wd;
 	protected WebDriverWait	w;
 	protected BaseDashboard	dash;
+	ArrayList<String>		browserWindows;
 
 	/* --- Element locators --- START */
 
@@ -35,6 +37,8 @@ public class HomePage extends AbstractComponent {
 	private By				confirmPassword		= By.id("confirmPassword");
 	private By				inputStudentCode	= By.id("studentCode");
 	private By				signupButton		= By.cssSelector("button[ng-click='signupForm.$valid && signup()']");
+	private By				iosAppButton		= By.className("apple-icon");
+	private By				androidAppButton	= By.className("android-icon");
 
 	/* --- Element locators --- END */
 
@@ -71,8 +75,9 @@ public class HomePage extends AbstractComponent {
 		inputLastName(lastname);
 		Assert.assertTrue(verifyLastName(lastname));
 
-		inputSignupEmail("automationtest" + myNum + "@automationtest.com");
-		Assert.assertTrue("Email field verification failed", verifySignupEmail("automationtest" + myNum + "@automationtest.com"));
+		inputSignupEmail("SergeiSc" + myNum + "@automationtest.com");
+		Assert.assertTrue("Email field verification failed", verifySignupEmail("SergeiSc" + myNum
+				+ "@automationtest.com"));
 
 		inputSignupPassword("ireland");
 		Assert.assertTrue(verifySignupPassword("ireland"));
@@ -82,14 +87,14 @@ public class HomePage extends AbstractComponent {
 
 		dash = clickOnSignup();
 		Assert.assertTrue("Dashboard verification failed", dash.verifyDashboardIsOpened());
-		
+
 		System.out.println("Signup as teacher PASS");
-		System.out.println("---\nautomationtest" + myNum + "@automationtest.com \nireland \n---");
+		System.out.println("---\nSergeiSc" + myNum + "@automationtest.com \nireland \n---");
 	}
 
 	public void login() {
-		String username = "";
-		String password = "";
+		String username = "u@t.com";
+		String password = "ireland";
 		// Verify that home page is opened
 		verifyHomePageIsOpened();
 		// Login with given credentials
@@ -102,6 +107,15 @@ public class HomePage extends AbstractComponent {
 		// Verify that login was successful and dashboard is opened
 		Assert.assertTrue("Dashboard verification failed", dash.verifyDashboardIsOpened());
 		System.out.println("Login PASS");
+	}
+
+	public void checkMobileAppStores() {
+		clickIosButton();
+		verifyIosPage();
+		System.out.println("iOS store page PASS");
+		clickAndroidButton();
+		verifyAndroidPage();
+		System.out.println("Android store page PASS");
 	}
 
 	/* Signup Methods */
@@ -239,6 +253,44 @@ public class HomePage extends AbstractComponent {
 		WebElement signInBtn = wd.findElement(loginButton);
 		signInBtn.click();
 		return new BaseDashboard(wd, w);
+	}
+
+	/* Mobile app stores */
+	// iOS
+	public void clickIosButton() {
+		wd.findElement(iosAppButton).click();
+	}
+
+	public void verifyIosPage() {
+		switchToNewWindow();
+		Boolean iosPageTitle = wd.getTitle().contentEquals("Sembly on the App Store");
+		Assert.assertTrue("iOS app store page is not verified", iosPageTitle);
+		closeAppStoreWindow();
+	}
+
+	// Android
+	public void clickAndroidButton() {
+		wd.findElement(androidAppButton).click();
+	}
+
+	public void verifyAndroidPage() {
+		switchToNewWindow();
+		Boolean androidPageTitle = wd.getTitle().contentEquals("Sembly – Android Apps on Google Play");
+		Assert.assertTrue("Android app store page is not verified", androidPageTitle);
+		closeAppStoreWindow();
+	}
+
+	// This method switches to the new window that just opened after
+	//	clicking on app store button
+	public void switchToNewWindow() {
+		browserWindows = new ArrayList<String>(wd.getWindowHandles());
+		wd.switchTo().window(browserWindows.get(1));
+	}
+
+	public void closeAppStoreWindow() {
+		wd.close();
+		browserWindows = new ArrayList<String>(wd.getWindowHandles());
+		wd.switchTo().window(browserWindows.get(0));
 	}
 
 }

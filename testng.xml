@@ -8,6 +8,7 @@
 		<parameter name="browserType" value="firefox" />
 		<classes>
 
+			<class name = "tests.CheckAppStores" />
 			<class name = "tests.Login" />
 			<class name = "tests.LeftNavigationTest" />
 			<class name = "tests.NewAssignment" />

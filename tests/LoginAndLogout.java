@@ -11,9 +11,9 @@ public class LoginAndLogout extends TestSetup {
 	public void canLogin() {
 		Pages.home().login();
 	}
-	
+
 	@Test(dependsOnMethods = { "canLogin" })
-	public void canLogout(){
+	public void canLogout() {
 		Pages.topNavigation().logout();
 	}
 
