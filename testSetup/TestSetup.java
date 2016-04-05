@@ -74,7 +74,7 @@ public class TestSetup {
 		System.out.println("Launching FireFox browser");
 		WebDriver wd = new FirefoxDriver();
 		Point p = new Point(550, 50);
-		//wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		wd.manage().window().setSize(new Dimension(1300, 1025));
 		wd.manage().window().setPosition(p);
 		wd.navigate().to(URL);
@@ -112,6 +112,31 @@ public class TestSetup {
 		quitDriver();
 	}
 
+	////////////////////////////////////////////////////////////////////////////
+	/*
+	public void openBrowser(String browser) {
+		getOS();
+		try {
+			if (browser.equalsIgnoreCase("Firefox")) {
+				wd = new FirefoxDriver();
+
+			} else if (browser.equalsIgnoreCase("chrome")) {
+				System.setProperty("webdriver.chrome.driver", chromePath);
+				wd = new ChromeDriver();
+
+			} else if (browser.equalsIgnoreCase("IE") && isWindows()) {
+				System.setProperty("webdriver.ie.driver",
+						"./Drivers/Windows/IEDriverServer.exe");
+				wd = new InternetExplorerDriver();
+			}
+
+		} catch (WebDriverException e) {
+			Reporter.log(e.getMessage());
+		}
+	}
+	*/
+	//////////////////////////////////////////////////////////////////////////
+
 	/* SET WAIT DRIVER */
 
 	private void setWaitDriver(int i) {
@@ -135,5 +160,28 @@ public class TestSetup {
 	public static void quitDriver() {
 		wd.quit();
 	}
+
+	/* Sample code for recognizing OS
+	 * 
+	public void getOS() {
+
+		if (isWindows()) {
+			chromePath = "./Drivers/Windows/chromedriver.exe";
+		} else if (isMac()) {
+			chromePath = "./Drivers/Mac/chromedriver.exe";
+		} else {
+			Reporter.log("Operating System not supported for Chrome.", true);
+		}
+
+	}
+
+	public static boolean isWindows() {
+		return (OS.indexOf("win") >= 0);
+	}
+
+	public static boolean isMac() {
+		return (OS.indexOf("mac") >= 0);
+	}
+	*/
 
 }

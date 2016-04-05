@@ -21,7 +21,7 @@ public class AddNewClass extends AbstractComponent {
 	//private By addSchoolButton = By.xpath("//button[contains(.,'Add School')]");
 	private By				createClassButton		= By.xpath("//button[contains(.,'Create Class Group')]");
 
-	private By				verify_classIsCreated	= By.xpath("//h2[contains(.,'Congratulations!')]");
+	private By				verify_classIsCreated	= By.xpath("//*[@id='content-container']/div/div[3]/div[2]/div/div/div/div[1]/ng-include/div/div[1]/h2");
 	private By				verify_addNewClassModal	= By.xpath("//h2[contains(.,'Create Class Group')]");
 
 	/* --- Element locators --- END */
@@ -35,7 +35,7 @@ public class AddNewClass extends AbstractComponent {
 		// Verify that Add New Class modal is opened
 		Assert.assertTrue(verifyAddNewClassModalIsOpened(), "Add new class modal is not displayed");
 		// Create new class
-		String className = "Biology 5th";
+		String className = "Anatomy 2016";
 		inputClassName(className);
 		verifyClassPageIsOpened(className);
 		selectSchool(1);

@@ -14,7 +14,7 @@ public class Assignments {
 
 	/* --- Element locators --- START */
 
-	private By				assignmentsHeader	= By.xpath("//*[@id='content-container']/div/div[1]/h2");
+	private By				assignmentsHeader	= By.xpath("//*[@id='content-container']/div[1]/div[2]/h3");
 	private By				assignments			= By.id("t-assignments");
 
 	/* --- Element locators --- END */
@@ -33,7 +33,7 @@ public class Assignments {
 
 	public boolean verifyAssignmentsPage() {
 		AbstractComponent a = new AbstractComponent();
-		return a.verifyPageText(assignmentsHeader, "All Assignments");
+		return a.verifyPageText(assignmentsHeader, "Your Assignments");
 	}
 
 }

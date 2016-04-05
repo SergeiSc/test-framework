@@ -15,16 +15,16 @@ public class TopNavigation {
 	/* --- Element locators --- START */
 	// Plus menu
 	private By				plusMenu					= By.cssSelector("span[class='lnr icon-plus-circle dropdown-toggle']");
-	private By				plusMenu_AddNewClass		= By.cssSelector("a[ng-click='showClassFormDialog()']");
-	private By				plusMenu_JoinClass			= By.cssSelector("a[ng-click='showJoinClassDialog()']");
+	private By				plusMenu_AddNewClass		= By.xpath("//*[@id='first-view-container']/div[5]/ng-include/div/div[2]/ul/li[3]/ul/li[1]/a");/*By.cssSelector("a[ng-click='showClassFormDialog()']");*/
+	private By				plusMenu_JoinClass			= By.xpath("//*[@id='first-view-container']/div[5]/ng-include/div/div[2]/ul/li[3]/ul/li[2]/a");/*By.cssSelector("a[ng-click='showJoinClassDialog()']");*/
 	private By				plusMenu_NewAssignment		= By.cssSelector("a[ng-click='toggleAssignmentCreation()']");
 	private By				plusMenu_NewAnnouncement	= By.cssSelector("a[ng-click='showAnnouncementDialog()']");
 	private By				plusMenu_ScheduleClass		= By.cssSelector("a[ng-click='openScheduler()']");
 	private By				plusMenu_AddSchool			= By.cssSelector("a[ng-click='showSchoolModal()']");
 	// User menu (top right corner)
-	private By				userMenu					= By.cssSelector("span[class='lnr icon-user dropdown-toggle']");
-	private By				userMenu_Profile			= By.id("t-profile");
-	private By				userMenu_Logout				= By.id("t-logout");
+	private By				userMenu					= By.xpath("//*[@id='first-view-container']/div[5]/ng-include/div/div[2]/ul/li[4]/span");
+	private By				userMenu_Profile			= By.xpath("//*[@id='first-view-container']/div[5]/ng-include/div/div[2]/ul/li[4]/ul/li[2]");
+	private By				userMenu_Logout				= By.xpath("//*[@id='first-view-container']/div[5]/ng-include/div/div[2]/ul/li[4]/ul/li[3]");
 
 	/* --- Element locators --- END */
 
@@ -78,7 +78,7 @@ public class TopNavigation {
 	}
 
 	public void createNewAssignment() {
-		AssignmentSteps steps = new AssignmentSteps(wd, w);
+		CreateAssignment steps = new CreateAssignment(wd, w);
 		steps.createAssignment();
 	}
 

@@ -22,10 +22,10 @@ public class HomePage extends AbstractComponent {
 
 	private By				brandingLogo		= By.id("t-sembly-logo");
 	// ------ Login section ------
-	private By				loginHereButton		= By.id("login-here-btn");
+	private By				loginHereButton		= By.cssSelector("a[ng-click='showLogInFormDialog()']");
 	private By				loginEmailField		= By.id("email");
 	private By				loginPasswordField	= By.id("password");
-	private By				loginButton			= By.cssSelector("button[ng-click='loginForm.$submitted=true; loginForm.$valid && login()']");
+	private By				loginButton			= By.cssSelector("button[ng-click='loginForm.$valid && login()']");
 	// ------ Signup section ------
 	private By				teacherButton		= By.xpath("//*[@id='signUpSection']/div/div[2]/div[2]/div/div/div[1]/button[1]");
 	private By				studentButton		= By.xpath("//*[@id='signUpSection']/div/div[2]/div[2]/div/div/div[1]/button[2]");
@@ -93,7 +93,7 @@ public class HomePage extends AbstractComponent {
 	}
 
 	public void login() {
-		String username = "u@t.com";
+		String username = "u2@t.com";
 		String password = "ireland";
 		// Verify that home page is opened
 		verifyHomePageIsOpened();

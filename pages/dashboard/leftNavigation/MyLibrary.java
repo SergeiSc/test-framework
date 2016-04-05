@@ -14,7 +14,7 @@ public class MyLibrary {
 
 	/* --- Element locators --- START */
 
-	private By				libraryHeader	= By.xpath("//*[@id='content-container']/div/div[2]/div[1]/h2");
+	private By				libraryHeader	= By.xpath("//*[@id='content-container']/div/div[1]/div/h2");
 	private By				library			= By.id("t-library");
 
 	/* --- Element locators --- END */

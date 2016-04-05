@@ -15,7 +15,7 @@ public class Activities {
 	/* --- Element locators --- START */
 
 	private By				activities			= By.id("t-activities");
-	private By				activityFeedHeader	= By.xpath("//*[@id='content-container']/div[1]/div[2]/div[1]/h2");
+	private By				activityFeedHeader	= By.xpath("//*[@id='content-container']/div[1]/div[1]/div/h2");
 
 	/* --- Element locators --- END */
 

@@ -13,7 +13,7 @@ public class Classes {
 
 	/* --- Element locators --- START */
 
-	private By				classesHeader	= By.xpath("//*[@id='content-container']/div[1]/h2");
+	private By				classesHeader	= By.xpath("//*[@id='content-container']/div/div[3]/div[1]/h3");
 	private By				classes			= By.id("t-classes");
 
 	/* --- Element locators --- END */
@@ -32,7 +32,7 @@ public class Classes {
 
 	public boolean verifyClassesPage() {
 		AbstractComponent a = new AbstractComponent();
-		return a.verifyPageText(classesHeader, "All Classes");
+		return a.verifyPageText(classesHeader, "Your Classes");
 	}
 
 }

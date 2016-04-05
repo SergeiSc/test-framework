@@ -10,7 +10,7 @@ import org.testng.Assert;
 
 import pages.AbstractComponent;
 
-public class AssignmentSteps extends AbstractComponent {
+public class CreateAssignment extends AbstractComponent {
 	protected WebDriver		wd;
 	protected WebDriverWait	w;
 
@@ -50,7 +50,7 @@ public class AssignmentSteps extends AbstractComponent {
 
 	/* END --- Element locators --- END */
 	// Constructor
-	public AssignmentSteps(WebDriver wd, WebDriverWait wait) {
+	public CreateAssignment(WebDriver wd, WebDriverWait wait) {
 		this.wd = wd;
 		this.w = wait;
 	}
@@ -60,26 +60,26 @@ public class AssignmentSteps extends AbstractComponent {
 	public void createAssignment() {
 		TopNavigation top = new TopNavigation(wd, w);
 		String assignmentName = "Anatomy Test";
-		
+
 		top.plusMenu("New Assignment");
-		
-		Assert.assertTrue(verifyStep1(), "This is not the 1st step in assignment creation form");
+
+		Assert.assertTrue(verifyStep1(), "Assignment step 1 page is not verified");
 		fillStep1(assignmentName, 1);
 
-		Assert.assertTrue(verifyStep2(), "This is not the 2st step in assignment creation form");
+		Assert.assertTrue(verifyStep2(), "Assignment step 2 page is not verified");
 		fillStep2("Assignment content");
 
-		Assert.assertTrue(verifyStep3(), "Step 3 is not open or buttons not displaying");
+		Assert.assertTrue(verifyStep3(), "Assignment step 3 page is not verified");
 		fillStep3();
 
-		Assert.assertTrue(verifyStep4(), "Step 4 failed verification");
+		Assert.assertTrue(verifyStep4(), "Assignment step 4 page is not verified");
 		fillStep4();
 
-		Assert.assertTrue(verifyStep5(), "Step 5 failed verification");
+		Assert.assertTrue(verifyStep5(), "Assignment step 5 page is not verified");
 		fillStep5();
 
 		Assert.assertTrue(verifyAssignmentPage(),
-				"Post assignment creation page is not verified. Marks as complete is not displayed.");
+				"After assignment is created. Assignment details page is not verified.");
 		System.out.println("Create Assignment PASS");
 	}
 

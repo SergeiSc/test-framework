@@ -22,7 +22,7 @@ public class AbstractComponent {
 			WebElement h = w.until(ExpectedConditions.elementToBeClickable(selector));
 			return h.getText().contains(text);
 		} catch (TimeoutException e) {
-			System.out.println("ELEMENT NOT FOUND " + text);
+			System.out.println("ELEMENT NOT FOUND " + text + " ---> " + selector);
 			return false;
 		}
 	}

@@ -1,23 +1,33 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test Case Uno" allow-return-values="true" >
+<suite name="Sembly Test" allow-return-values="true" >
 
 	<parameter name="URL" value="" />
 	
 	<test name="firefox test">
-	
 		<parameter name="browserType" value="firefox" />
 		<classes>
-
 			<class name = "tests.CheckAppStores" />
-			<class name = "tests.Login" />
-			<class name = "tests.LeftNavigationTest" />
-			<class name = "tests.NewAssignment" />
-			<class name = "tests.Logout" />
-			<class name = "tests.SignupAsTeacher" />
+		    <class name = "tests.Login" />
+		    <class name = "tests.LeftNavigationTest" />
+		    <class name = "tests.CreateClass" />
+		    <class name = "tests.Logout" />
 
 		</classes>
 	</test>
-	
+<!--
+		    <class name = "tests.CreateClass" />
+
+
+			<class name = "tests.NewAssignment" />
+			<class name = "tests.SignupAsTeacher" />
+
+	<test name="chrome test">
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="tests.CreateClassAndAssignment" />
+		</classes>
+	</test>
+-->
 	<listeners>
 		<listener class-name="testSetup.TestListener" />
 	</listeners>

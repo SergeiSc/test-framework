@@ -14,7 +14,7 @@ public class Timetable {
 
 	/* --- Element locators --- START */
 
-	private By				timetableHeader	= By.xpath("//*[@id='content-container']/div/div[2]/div/class-scheduler/div[1]/div[1]/h2");
+	private By				timetableHeader	= By.xpath("//*[@id='content-container']/div/div[1]/div/h2");
 	private By				timetable		= By.id("t-timetable");
 
 	/* --- Element locators --- END */
